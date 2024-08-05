@@ -1,28 +1,13 @@
-# unplugin-starter
+# unplugin-sucrase
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-starter?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-starter)
+[![NPM version](https://img.shields.io/npm/v/unplugin-sucrase?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-sucrase)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
-
-## Template Usage
-
-To use this template, clone it down using:
-
-```bash
-npx degit unplugin/unplugin-starter my-unplugin
-```
-
-And do a global replacement of `unplugin-starter` with your plugin name.
-
-Then you can start developing your unplugin 🔥
-
-To test your plugin, run: `pnpm run dev`
-To release a new version, run: `pnpm run release`
+🍣 A universal bundler plugin which compiles TypeScript, Flow, JSX, etc with Sucrase.
 
 ## Install
 
 ```bash
-npm i unplugin-starter
+npm i unplugin-sucrase
 ```
 
 <details>
@@ -30,11 +15,13 @@ npm i unplugin-starter
 
 ```ts
 // vite.config.ts
-import Starter from 'unplugin-starter/vite'
+import UnpluginSucrase from 'unplugin-sucrase/vite'
 
 export default defineConfig({
   plugins: [
-    Starter({ /* options */ }),
+    UnpluginSucrase({
+      /* options */
+    }),
   ],
 })
 ```
@@ -48,17 +35,18 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import Starter from 'unplugin-starter/rollup'
+import UnpluginSucrase from 'unplugin-sucrase/rollup'
 
 export default {
   plugins: [
-    Starter({ /* options */ }),
+    UnpluginSucrase({
+      /* options */
+    }),
   ],
 }
 ```
 
 <br></details>
-
 
 <details>
 <summary>Webpack</summary><br>
@@ -68,8 +56,10 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require('unplugin-starter/webpack')({ /* options */ })
-  ]
+    require('unplugin-sucrase/webpack')({
+      /* options */
+    }),
+  ],
 }
 ```
 
@@ -82,7 +72,12 @@ module.exports = {
 // nuxt.config.js
 export default defineNuxtConfig({
   modules: [
-    ['unplugin-starter/nuxt', { /* options */ }],
+    [
+      'unplugin-sucrase/nuxt',
+      {
+        /* options */
+      },
+    ],
   ],
 })
 ```
@@ -99,7 +94,9 @@ export default defineNuxtConfig({
 module.exports = {
   configureWebpack: {
     plugins: [
-      require('unplugin-starter/webpack')({ /* options */ }),
+      require('unplugin-sucrase/webpack')({
+        /* options */
+      }),
     ],
   },
 }
@@ -113,11 +110,19 @@ module.exports = {
 ```ts
 // esbuild.config.js
 import { build } from 'esbuild'
-import Starter from 'unplugin-starter/esbuild'
+import UnpluginSucrase from 'unplugin-sucrase/esbuild'
 
 build({
-  plugins: [Starter()],
+  plugins: [UnpluginSucrase()],
 })
 ```
 
 <br></details>
+
+## Usage
+
+### Options
+
+For all options please refer to [docs](https://github.com/rollup/plugins/tree/master/packages/sucrase#options).
+
+This plugin accepts all [@rollup/plugin-sucrase](https://github.com/rollup/plugins/tree/master/packages/sucrase#options) options.
